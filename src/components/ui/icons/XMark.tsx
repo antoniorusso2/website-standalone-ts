@@ -1,6 +1,7 @@
 import type { JSX } from "react";
+import type { IconProps } from "../../../types/icon";
 
-export default function XMark(): JSX.Element {
+export default function XMark({ size }: IconProps): JSX.Element {
     return (
         <i>
             <svg
@@ -9,7 +10,7 @@ export default function XMark(): JSX.Element {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="size-6"
+                className={`size-${size}`}
             >
                 <path
                     strokeLinecap="round"

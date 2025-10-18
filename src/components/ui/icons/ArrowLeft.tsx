@@ -1,7 +1,7 @@
 import type { JSX } from "react";
-import type { ArrowIconProps } from "../../../data/icon";
+import type { IconProps } from "../../../types/icon";
 
-export default function ArrowLeft({ size }: ArrowIconProps): JSX.Element {
+export default function ArrowLeft({ size }: IconProps): JSX.Element {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
