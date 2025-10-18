@@ -1,16 +1,15 @@
 import type { JSX } from "react";
-import type { IconProps } from "../../../types/icon";
 
-export default function XMark({ size }: IconProps): JSX.Element {
+export default function XMark(): JSX.Element {
     return (
-        <i>
+        <i className="">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className={`size-${size}`}
+                className="size-8 bg-red-500 h-12 w-12 p-1 rounded-full"
             >
                 <path
                     strokeLinecap="round"
