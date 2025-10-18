@@ -5,3 +5,7 @@ export interface Technology {
     color: string;
     icon_external_url: string;
 }
+
+export interface TechBadgeProps {
+    technology: Technology;
+}

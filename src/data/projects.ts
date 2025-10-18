@@ -6,6 +6,9 @@ export const projects: Project[] = [
         name: "Portfolio personale",
         slug: "ntn-rss-portfolio-standalone",
         customer: null,
+        type: {
+            name: "Web",
+        },
         description:
             "Gestione contenuti per portfolio online realizzato con Laravel.\n- Dashboard con menu a tendina per ogni sezione\n- Filtro ricerca per nome e/o categoria\n- Pagina di presentazione con immagini/video e descrizione\n- Pagina per visualizzare le tecnologie utilizzate",
         media: [
@@ -99,6 +102,9 @@ export const projects: Project[] = [
         name: "InvoiceFlow",
         slug: "ntn-rss-invoice-flow",
         customer: null,
+        type: {
+            name: "Web",
+        },
         description:
             "Tool per automazione controllo scadenze e fatturazioni. Python per la creazione di un prototipo 'veloce'. JavaFX per lo sviluppo vero e proprio del progetto. Il progetto consiste in sostanza nel caricamento di una cartella saranno allocati i file da scansionare ed analizzare e dopo aver eseguito l'analisi crea un file di log con tutte le fatturazioni in scadenza o scadute con le relative informazioni. Per il momento essendo in fase di sviluppo il software è capace di scansionare ed estrapolare dati solo da file excel, per quanto riguarda i file PDF è na feature che tra poco sarà completata.",
         media: [],

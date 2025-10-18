@@ -1,15 +1,8 @@
 import { useState } from "react";
 import ArrowLeft from "../../ui/icons/ArrowLeft";
 import ArrowRight from "../../ui/icons/ArrowRight";
-
-interface Media {
-    url: string;
-    type: string;
-}
-
-interface MediaCarouselProps {
-    mediaList: Media[];
-}
+import type { MediaCarouselProps } from "../../../types/media";
+import ImageModal from "../../ui/ImageModal";
 
 export default function MediaCarousel({ mediaList }: MediaCarouselProps) {
     const [currentIndex, setCurrentIndex] = useState(0);

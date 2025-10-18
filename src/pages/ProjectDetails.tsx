@@ -2,8 +2,10 @@ import { useParams } from "react-router";
 import { projects } from "../data/projects";
 import type { JSX } from "react";
 import { formatDescription } from "../helpers/formatDescription";
+import MediaCarousel from "../components/Carousel/Media/MediaCarousel";
+import TechBadge from "../components/ui/TechBadge";
 
-export default function ProjectDetail():JSX.Element {
+export default function ProjectDetail(): JSX.Element {
     const { slug } = useParams();
 
     const project = projects.find((p) => p.slug === slug);
@@ -29,9 +31,9 @@ export default function ProjectDetail():JSX.Element {
                 <h1 className=" md:text-2xl font-bold text-[var(--color-text-primary)] capitalize">
                     {project.name}
                 </h1>
-                {project.client && (
+                {project.customer && (
                     <p className="text-gray-500 mb-3">
-                        Cliente: {project.client}
+                        Cliente: {project.customer}
                     </p>
                 )}
 

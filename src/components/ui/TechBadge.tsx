@@ -1,10 +1,6 @@
 import type { JSX } from "react";
-import type { Technology } from "../../data/technologies";
 import { isColorLight } from "../../helpers/isColorLight";
-
-interface TechBadgeProps {
-    technology: Technology;
-}
+import type { TechBadgeProps } from "../../types/technology";
 
 export default function TechBadge({ technology }: TechBadgeProps): JSX.Element {
     const textColor = isColorLight(technology.color)
