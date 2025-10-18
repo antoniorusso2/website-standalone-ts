@@ -65,14 +65,14 @@ export default function MediaCarousel({ mediaList }: MediaCarouselProps) {
                             onClick={showPrev}
                             aria-label="Immagine precedente"
                         >
-                            <ArrowLeft size={24} />
+                            <ArrowLeft />
                         </button>
                         <button
                             className="pointer-events-auto bg-[var(--color-bg-dark)]/60 hover:bg-[var(--color-accent-blue)]/70 text-[var(--color-text-primary)] p-2 md:p-3 rounded-full transition-all"
                             onClick={showNext}
                             aria-label="Immagine successiva"
                         >
-                            <ArrowRight size={24} />
+                            <ArrowRight />
                         </button>
                     </div>
                 )}
