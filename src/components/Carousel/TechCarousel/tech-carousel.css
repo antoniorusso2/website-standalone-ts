@@ -1,0 +1,33 @@
+/* TechCarousel.css */
+.carousel {
+    display: flex;
+    width: max-content;
+    animation: scroll 15s linear infinite;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Keyframes for the infinite scroll */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}

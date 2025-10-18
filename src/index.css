@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+@import "tailwindcss";
+
+:root {
+    --color-bg-dark: #0e0f1a;
+    --color-bg-medium: #1d2033;
+    --color-accent-magenta: #f72585;
+    --color-accent-blue: #4895ef;
+    --color-accent-violet: #7209b7;
+    --color-text-primary: #f1f1f1;
+    --color-text-secondary: #b8b8d0;
+    --color-nav-bg: rgba(14, 15, 26, 0.85);
+    --color-glow: #f72585;
+    --card-shadow: 0 0 8px 1px var(--color-glow);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* react root */
+#root {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    @apply mx-auto px-6 min-w-xs;
+}
+
+button {
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+nav {
+    font-family: "Orbitron", sans-serif;
+}
+
+main {
+    padding: 1.2rem 0;
+}
+
+header {
+    background-image: linear-gradient(
+        to bottom,
+        var(--color-bg-medium),
+        var(--color-bg-dark) 100%
+    );
+}
+
+body {
+    /* background-image: url("/background.jpg"); */
+    background-image: linear-gradient(
+        to bottom,
+        var(--color-bg-dark) 40%,
+        var(--color-bg-medium) 90%
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+    font-family: "Roboto Mono", monospace;
+
+    color: var(--color-text-primary);
+}
+
+footer {
+    background-image: linear-gradient(
+        to bottom,
+        var(--color-bg-medium) 20%,
+        var(--color-bg-dark) 100%
+    );
+}
+
+.content_section {
+    @apply bg-[var(--color-bg-medium)]/80 border border-(--color-bg-medium) rounded-sm shadow-[0_0_30px_var(--color-bg-dark)] backdrop-blur-sm p-6 text-center mb-8;
+}
