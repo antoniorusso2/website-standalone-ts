@@ -23,7 +23,7 @@ export default function ProjectDetail(): JSX.Element {
 
     return (
         <>
-            <div className="container mt-25">
+            <div className="container">
                 {project.media && <MediaCarousel mediaList={project.media} />}
                 {/* Carousel */}
 
