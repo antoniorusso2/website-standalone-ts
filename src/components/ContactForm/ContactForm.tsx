@@ -4,52 +4,52 @@ import emailjs from "@emailjs/browser";
 interface FormState {
     user_name: string;
     user_email: string;
-    user_message: string;
+    message: string;
 }
+type Status = "idle" | "sending" | "success" | "error";
 
 export const ContactForm = () => {
-    const formRef = useRef<HTMLFormElement>(null);
+    const formRef = useRef<HTMLFormElement | null>(null);
 
     const [formData, setFormData] = useState<FormState>({
         user_name: "",
         user_email: "",
-        user_message: "",
+        message: "",
     });
 
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
-    ) => {
+    const [status, setStatus] = useState<Status>("idle");
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
 
-        setFormData({
-            ...formData,
+        setFormData((prev) => ({
+            ...prev,
             [name]: value,
-        });
+        }));
     };
 
-    const sendEmail = (e: React.SyntheticEvent): void => {
+    const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (!formRef.current) return;
 
-        emailjs
-            .sendForm(
+        try {
+            setStatus("sending");
+
+            await emailjs.sendForm(
                 import.meta.env.VITE_EMAIL_JS_SERVICE_ID,
                 import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID,
                 formRef.current,
-                {
-                    publicKey: import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY,
-                }
-            )
-            .then(
-                (res) => {
-                    console.log("SUCCESS!", res.status);
-                    console.log(res.text);
-                },
-                (error) => {
-                    console.log("FAILED...", error.text);
-                }
+                import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY
             );
+
+            setStatus("success");
+            setFormData({ user_name: "", user_email: "", message: "" });
+        } catch (error) {
+            console.log(formData);
+            console.error("Email send failed:", error);
+            setStatus("error");
+        }
     };
 
     //TODO: Add validation and error handling
@@ -76,12 +76,12 @@ export const ContactForm = () => {
                             value={formData.user_name}
                             onChange={handleChange}
                             required
-                            className="peer w-full border-b-2 border-[var(--color-text-secondary)]/40 bg-transparent py-2 text-[var(--color-text-primary)] placeholder-transparent focus:outline-none focus:border-[var(--color-accent)] transition-colors"
+                            className="peer w-full border-b-2 border-[var(--color-text-secondary)]/40 bg-transparent py-2 text-[var(--color-text-primary)] placeholder-transparent focus:outline-none focus:border-[var(--color-accent-blue)] transition-colors"
                             placeholder="Name"
                         />
                         <label
                             htmlFor="user_name"
-                            className="absolute left-0 top-2 text-[var(--color-text-secondary)] transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-[var(--color-text-secondary)] peer-focus:-top-3 peer-focus:text-sm peer-focus:text-[var(--color-accent)]"
+                            className="absolute left-0 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-500 peer-[&:not(:placeholder-shown)]:-top-3 peer-[&:not(:placeholder-shown)]:text-sm peer-[&:not(:placeholder-shown)]:text-blue-500"
                         >
                             Nome
                         </label>
@@ -96,14 +96,14 @@ export const ContactForm = () => {
                             value={formData.user_email}
                             onChange={handleChange}
                             required
-                            className="peer w-full border-b-2 border-[var(--color-text-secondary)]/40 bg-transparent py-2 text-[var(--color-text-primary)] placeholder-transparent focus:outline-none focus:border-[var(--color-accent)] transition-colors"
+                            className="peer w-full border-b-2 border-[var(--color-text-secondary)]/40 bg-transparent py-2 text-[var(--color-text-primary)] placeholder-transparent focus:outline-none focus:border-[var(--color-accent-blue)] transition-colors"
                             placeholder="Email"
                         />
                         <label
                             htmlFor="user_email"
-                            className="absolute left-0 top-2 text-[var(--color-text-secondary)] transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-[var(--color-text-secondary)] peer-focus:-top-3 peer-focus:text-sm peer-focus:text-[var(--color-accent)]"
+                            className="absolute left-0 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-500 peer-[&:not(:placeholder-shown)]:-top-3 peer-[&:not(:placeholder-shown)]:text-sm peer-[&:not(:placeholder-shown)]:text-blue-500"
                         >
-                            Email
+                            La Tua Email
                         </label>
                     </div>
 
@@ -112,16 +112,16 @@ export const ContactForm = () => {
                         <textarea
                             id="message"
                             name="message"
-                            value={formData.user_message}
+                            value={formData.message}
                             onChange={handleChange}
                             required
                             rows={4}
                             placeholder="Message"
-                            className="peer w-full border-b-2 border-[var(--color-text-secondary)]/40 bg-transparent py-2 text-[var(--color-text-primary)] placeholder-transparent focus:outline-none focus:border-[var(--color-accent)] transition-colors resize-none"
+                            className="peer w-full border-b-2 border-[var(--color-text-secondary)]/40 bg-transparent py-2 text-[var(--color-text-primary)] placeholder-transparent focus:outline-none focus:border-[var(--color-accent-blue)] transition-colors resize-none"
                         ></textarea>
                         <label
                             htmlFor="message"
-                            className="absolute left-0 top-2 text-[var(--color-text-secondary)] transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-[var(--color-text-secondary)] peer-focus:-top-3 peer-focus:text-sm peer-focus:text-[var(--color-accent)]"
+                            className="absolute left-0 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-500 peer-[&:not(:placeholder-shown)]:-top-3 peer-[&:not(:placeholder-shown)]:text-sm peer-[&:not(:placeholder-shown)]:text-blue-500"
                         >
                             Messaggio
                         </label>
