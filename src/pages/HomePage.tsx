@@ -1,5 +1,6 @@
 import type { JSX } from "react";
 import TechCArousel from "../components/Carousel/TechCarousel/TechCarousel";
+import { ContactForm } from "../components/ContactForm/ContactForm";
 
 export default function HomePage(): JSX.Element {
     return (
@@ -14,13 +15,11 @@ export default function HomePage(): JSX.Element {
                             Web Developer
                         </p>
                         <p className="description my-5">
-                            Mi piace creare applicazioni che fanno la differenza
-                            nel lavoro di tutti i giorni. Che sia un'app web per
-                            gestire progetti o un tool desktop per automatizzare
-                            task ripetitivi, il mio obiettivo è sempre lo
-                            stesso: rendere il flusso lavorativo più fluido ed
-                            efficiente. Ogni sfida è un'occasione per imparare e
-                            costruire qualcosa di utile.
+                            Mi piace creare applicazioni che fanno la differenza nel lavoro di tutti
+                            i giorni. Che sia un'app web per gestire progetti o un tool desktop per
+                            automatizzare task ripetitivi, il mio obiettivo è sempre lo stesso:
+                            rendere il flusso lavorativo più fluido ed efficiente. Ogni sfida è
+                            un'occasione per imparare e costruire qualcosa di utile.
                         </p>
                     </div>
                 </div>
@@ -34,6 +33,10 @@ export default function HomePage(): JSX.Element {
                         <TechCArousel />
                     </div>
                 </div>
+            </section>
+
+            <section className="contact_me py-12 bg-[var(--color-bg-secondary)]">
+                <ContactForm />
             </section>
         </>
     );
