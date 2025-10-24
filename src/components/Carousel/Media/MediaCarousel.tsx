@@ -21,15 +21,11 @@ export default function MediaCarousel({ mediaList }: MediaCarouselProps) {
     };
 
     const showPrev = () => {
-        setCurrentIndex((prev) =>
-            prev === 0 ? mediaList.length - 1 : prev - 1
-        );
+        setCurrentIndex((prev) => (prev === 0 ? mediaList.length - 1 : prev - 1));
     };
 
     const showNext = () => {
-        setCurrentIndex((prev) =>
-            prev === mediaList.length - 1 ? 0 : prev + 1
-        );
+        setCurrentIndex((prev) => (prev === mediaList.length - 1 ? 0 : prev + 1));
     };
 
     const currentMedia = mediaList[currentIndex];
@@ -38,15 +34,15 @@ export default function MediaCarousel({ mediaList }: MediaCarouselProps) {
 
     return (
         <div className="project_carousel relative w-full mb-6">
-            <div className="relative overflow-hidden rounded-lg flex items-center justify-center bg-[var(--color-bg-medium)]/50 md:min-h-96">
+            <div className="relative overflow-hidden rounded-lg flex items-center justify-center bg-[var(--color-bg-medium)]/50 md:h-[600px]">
                 {mediaList[currentIndex].type === "image" ? (
                     <img
                         src={currentMediaUrl}
-                        className="w-full aspect-square md:aspect-auto max-h-[600px] object-cover object-top cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
+                        className="w-full aspect-square md:aspect-auto max-h-[600px] object-cover object-top md:object-center cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
                         alt="Immagine del progetto"
-                        onError={(
-                            e: React.SyntheticEvent<HTMLImageElement, Event>
-                        ) => (e.currentTarget.src = "/placeholder-600-400.png")}
+                        onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) =>
+                            (e.currentTarget.src = "/placeholder-600-400.png")
+                        }
                         onClick={() => openModal(currentMediaUrl)}
                     />
                 ) : (
