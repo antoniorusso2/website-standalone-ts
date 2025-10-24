@@ -95,7 +95,7 @@ export const projects: Project[] = [
                     "https://img.icons8.com/?size=100&id=4PiNHtUJVbLs&format=png&color=000000",
             },
         ],
-        external_link: null,
+        external_link: "https://github.com/antoniorusso2/laravel-portfolio",
     },
     {
         id: 2,

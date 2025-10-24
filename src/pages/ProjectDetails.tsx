@@ -4,6 +4,7 @@ import type { JSX } from "react";
 import { formatDescription } from "../helpers/formatDescription";
 import MediaCarousel from "../components/Carousel/Media/MediaCarousel";
 import TechBadge from "../components/ui/TechBadge";
+import ExternalLink from "../components/ui/icons/ExternalLink";
 
 export default function ProjectDetail(): JSX.Element {
     const { slug } = useParams();
@@ -13,8 +14,7 @@ export default function ProjectDetail(): JSX.Element {
     if (!project) {
         return (
             <div className="container mx-auto px-4 max-w-4xl py-10 text-center text-red-500">
-                Progetto non trovato o si è verificato un errore nel
-                caricamento.
+                Progetto non trovato o si è verificato un errore nel caricamento.
             </div>
         );
     }
@@ -32,9 +32,22 @@ export default function ProjectDetail(): JSX.Element {
                     {project.name}
                 </h1>
                 {project.customer && (
-                    <p className="text-gray-500 mb-3">
-                        Cliente: {project.customer}
-                    </p>
+                    <p className="text-gray-500 mb-3">Cliente: {project.customer}</p>
+                )}
+
+                {/* link */}
+                {project.external_link && (
+                    <div className="text-(--color-accent-blue) flex gap-3 items-center">
+                        <a
+                            href={project.external_link}
+                            className="underline "
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {project.external_link}
+                        </a>
+                        <ExternalLink />
+                    </div>
                 )}
 
                 {/* Tipologia */}
