@@ -2,8 +2,8 @@ export default function Footer() {
     return (
         <footer className="footer py-4 w-full">
             <div className="container">
-                <div className="row flex justify-between border-b-2 border-b-cyan-800 py-4">
-                    <ul className="contacts-list">
+                <div className="row flex flex-col md:flex-row gap-5 justify-between border-b-2 border-b-cyan-800 py-4">
+                    <ul className="contacts-list text-xs md:text-sm">
                         {/* phone */}
                         <li className="contacts-item">
                             <p className="contacts-text">
@@ -21,10 +21,15 @@ export default function Footer() {
                     {/* socials */}
                     <ul className="social-list">
                         <li className="social-item inline-block">
-                            <a className="social-link" href="#" target="_blank" rel="noreferrer">
+                            <a
+                                className="social-link block me-4"
+                                href="https://www.linkedin.com/in/antonio-russo-361705340/"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 <img
-                                    src="https://img.icons8.com/ios-glyphs/30/ffffff/linkedin.png"
-                                    alt="linkedin"
+                                    src="https://img.icons8.com/ios-glyphs/40/ffffff/linkedin.png"
+                                    alt="linkedin-icon"
                                 />
                             </a>
                         </li>
@@ -36,16 +41,8 @@ export default function Footer() {
                                 rel="noreferrer"
                             >
                                 <img
-                                    src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png"
-                                    alt="github"
-                                />
-                            </a>
-                        </li>
-                        <li className="social-item inline-block">
-                            <a className="social-link" href="#" target="_blank" rel="noreferrer">
-                                <img
-                                    src="https://img.icons8.com/ios-glyphs/30/ffffff/instagram-new.png"
-                                    alt="instagram"
+                                    src="https://img.icons8.com/ios-glyphs/40/ffffff/github.png"
+                                    alt="github-icon"
                                 />
                             </a>
                         </li>
