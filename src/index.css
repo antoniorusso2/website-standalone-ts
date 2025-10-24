@@ -46,11 +46,7 @@ main {
 }
 
 header {
-    background-image: linear-gradient(
-        to bottom,
-        var(--color-bg-medium),
-        var(--color-bg-dark) 100%
-    );
+    background-image: linear-gradient(to bottom, var(--color-bg-medium), var(--color-bg-dark) 100%);
 }
 
 body {
@@ -79,5 +75,9 @@ footer {
 }
 
 .content_section {
-    @apply bg-[var(--color-bg-medium)]/80 border border-(--color-bg-medium) rounded-sm shadow-[0_0_30px_var(--color-bg-dark)] backdrop-blur-sm p-6 text-center mb-8;
+    @apply bg-[var(--color-bg-medium)]/80 border border-(--color-bg-medium) rounded-sm shadow-[0_0_30px_var(--color-bg-dark)] backdrop-blur-sm p-6 mb-8;
+}
+
+.custom_link {
+    @apply text-(--color-accent-blue) hover:underline;
 }
