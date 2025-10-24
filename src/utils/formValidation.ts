@@ -7,12 +7,13 @@ import type { FormData, FormError, FormValidationRule } from "../types/form";
  */
 export function validateForm(data: FormData) {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const invalidCharsRegex = /[^\p{L}\s-]/u;
 
     const rules: FormValidationRule<FormData> = {
         user_name: {
             min: 3,
             max: 50,
-            allowed_chars: ["a-zA-Z", "-"],
+            invalid_chars: invalidCharsRegex,
             required: true,
         },
         user_email: {
@@ -52,10 +53,7 @@ export function validateForm(data: FormData) {
             errors[key] = `Il campo ${field} deve avere al massimo ${rule.max} caratteri`;
         }
 
-        if (
-            rule.allowed_chars &&
-            !rule.allowed_chars.every((char) => new RegExp(char).test(value))
-        ) {
+        if (rule.invalid_chars && invalidCharsRegex.test(value)) {
             errors[key] = "Caratteri non validi";
         }
     }

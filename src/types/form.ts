@@ -7,7 +7,7 @@ export interface FormData {
 interface ValidationRule {
     min?: number;
     max?: number;
-    allowed_chars?: string[];
+    invalid_chars?: RegExp;
     regex?: RegExp;
     required?: boolean;
 }

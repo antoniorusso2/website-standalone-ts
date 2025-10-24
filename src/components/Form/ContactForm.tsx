@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import type { FormData, FormErrors, Status } from "../../types/form";
+import type { FormData, Status } from "../../types/form";
 import { validateForm } from "../../utils/formValidation";
 import { FormInput } from "./FormInput";
 
@@ -33,6 +33,7 @@ export const ContactForm = () => {
 
     const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setErrors({});
 
         if (!formRef.current) return;
 
@@ -48,12 +49,12 @@ export const ContactForm = () => {
         try {
             setStatus("sending");
 
-            // await emailjs.sendForm(
-            //     import.meta.env.VITE_EMAIL_JS_SERVICE_ID,
-            //     import.meta.env.VITE_EMAIL_JS_COURTESY_TEMPLATE_ID,
-            //     formRef.current,
-            //     import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY
-            // );
+            await emailjs.sendForm(
+                import.meta.env.VITE_EMAIL_JS_SERVICE_ID,
+                import.meta.env.VITE_EMAIL_JS_COURTESY_TEMPLATE_ID,
+                formRef.current,
+                import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY
+            );
 
             await emailjs.sendForm(
                 import.meta.env.VITE_EMAIL_JS_SERVICE_ID,

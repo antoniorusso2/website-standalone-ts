@@ -52,6 +52,11 @@ export default function Header(): JSX.Element {
                                 Progetti
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink to="/contact" className="nav_link">
+                                Contatti
+                            </NavLink>
+                        </li>
                     </ul>
                 </nav>
 
