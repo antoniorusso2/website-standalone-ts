@@ -7,7 +7,7 @@ export default function DefaultLayout() {
         <>
             <Header />
 
-            <main>
+            <main className="flex-grow">
                 <Outlet />
             </main>
 

@@ -58,10 +58,7 @@ export default function Header(): JSX.Element {
                 {isOpen && (
                     <ul className="md:hidden flex flex-col gap-4 mt-2 pb-5 transition-all duration-1000 ease-in-out">
                         <li>
-                            <NavLink
-                                to="/"
-                                className="nav_link block sm:py-2 md:py-0 border-b"
-                            >
+                            <NavLink to="/" className="nav_link block sm:py-2 md:py-0 border-b">
                                 Home
                             </NavLink>
                         </li>
@@ -71,6 +68,14 @@ export default function Header(): JSX.Element {
                                 className="nav_link block sm:py-2 md:py-0 border-b"
                             >
                                 Progetti
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/contact"
+                                className="nav_link block sm:py-2 md:py-0 border-b"
+                            >
+                                Contatti
                             </NavLink>
                         </li>
                     </ul>

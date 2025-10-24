@@ -1,23 +1,26 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-
-interface FormState {
-    user_name: string;
-    user_email: string;
-    message: string;
-}
-type Status = "idle" | "sending" | "success" | "error";
+import type { FormData, FormErrors, Status } from "../../types/form";
+import { validateForm } from "../../utils/formValidation";
+import { FormInput } from "./FormInput";
 
 export const ContactForm = () => {
     const formRef = useRef<HTMLFormElement | null>(null);
 
-    const [formData, setFormData] = useState<FormState>({
+    const [formData, setFormData] = useState<FormData>({
         user_name: "",
         user_email: "",
         message: "",
     });
 
     const [status, setStatus] = useState<Status>("idle");
+    const [errors, setErrors] = useState<FormErrors>({
+        user_email: "",
+        user_name: "",
+        message: "",
+    });
+
+    const [isFormValid, setIsFormValid] = useState<boolean>(true);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -33,78 +36,78 @@ export const ContactForm = () => {
 
         if (!formRef.current) return;
 
+        //custom form data validation
+        const validated = validateForm(formData);
+
+        if (Object.keys(validated).length > 0) {
+            setErrors(validated);
+            setIsFormValid(false);
+            return;
+        }
+
         try {
             setStatus("sending");
 
+            // await emailjs.sendForm(
+            //     import.meta.env.VITE_EMAIL_JS_SERVICE_ID,
+            //     import.meta.env.VITE_EMAIL_JS_COURTESY_TEMPLATE_ID,
+            //     formRef.current,
+            //     import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY
+            // );
+
             await emailjs.sendForm(
                 import.meta.env.VITE_EMAIL_JS_SERVICE_ID,
-                import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID,
+                import.meta.env.VITE_EMAIL_JS_PERSONAL_TEMPLATE_ID,
                 formRef.current,
                 import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY
             );
 
+            console.log("dati validi: ", formData);
+
             setStatus("success");
             setFormData({ user_name: "", user_email: "", message: "" });
         } catch (error) {
-            console.log(formData);
             console.error("Email send failed:", error);
             setStatus("error");
         }
     };
 
-    //TODO: Add validation and error handling
-    //TODO: add form handle data function
-
     return (
         <div className="container mx-auto px-4">
             <div className="content_section max-w-lg mx-auto text-center">
-                <h2 className="text-2xl md:text-4xl font-semibold uppercase tracking-wide mb-8 drop-shadow-[0_0_4px_var(--color-text-secondary)]/70">
+                <h2 className="text-2xl md:text-4xl font-semibold uppercase tracking-wide drop-shadow-[0_0_4px_var(--color-text-secondary)]/70 mb-5">
                     Contattami
                 </h2>
 
                 <form
                     ref={formRef}
                     onSubmit={sendEmail}
-                    className="space-y-6 bg-[var(--color-bg-primary)] p-6 rounded-2xl shadow-md border border-[var(--color-text-secondary)]/20"
+                    className="space-y-6 bg-[var(--color-bg-primary)] p-6 rounded-sm shadow-md border border-[var(--color-text-secondary)]/20"
                 >
                     {/* Name */}
                     <div className="relative">
-                        <input
+                        <FormInput
                             type="text"
-                            id="user_name"
                             name="user_name"
                             value={formData.user_name}
                             onChange={handleChange}
-                            required
-                            className="peer w-full border-b-2 border-[var(--color-text-secondary)]/40 bg-transparent py-2 text-[var(--color-text-primary)] placeholder-transparent focus:outline-none focus:border-[var(--color-accent-blue)] transition-colors"
-                            placeholder="Name"
+                            required={true}
+                            error={errors.user_name}
+                            placeholder="Nome"
                         />
-                        <label
-                            htmlFor="user_name"
-                            className="absolute left-0 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-500 peer-[&:not(:placeholder-shown)]:-top-3 peer-[&:not(:placeholder-shown)]:text-sm peer-[&:not(:placeholder-shown)]:text-blue-500"
-                        >
-                            Nome
-                        </label>
                     </div>
 
                     {/* Email */}
                     <div className="relative">
-                        <input
+                        <FormInput
                             type="email"
-                            id="user_email"
                             name="user_email"
                             value={formData.user_email}
                             onChange={handleChange}
-                            required
-                            className="peer w-full border-b-2 border-[var(--color-text-secondary)]/40 bg-transparent py-2 text-[var(--color-text-primary)] placeholder-transparent focus:outline-none focus:border-[var(--color-accent-blue)] transition-colors"
+                            required={true}
+                            error={errors.user_email}
                             placeholder="Email"
                         />
-                        <label
-                            htmlFor="user_email"
-                            className="absolute left-0 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-500 peer-[&:not(:placeholder-shown)]:-top-3 peer-[&:not(:placeholder-shown)]:text-sm peer-[&:not(:placeholder-shown)]:text-blue-500"
-                        >
-                            La Tua Email
-                        </label>
                     </div>
 
                     {/* Message */}
@@ -114,7 +117,6 @@ export const ContactForm = () => {
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
-                            required
                             rows={4}
                             placeholder="Message"
                             className="peer w-full border-b-2 border-[var(--color-text-secondary)]/40 bg-transparent py-2 text-[var(--color-text-primary)] placeholder-transparent focus:outline-none focus:border-[var(--color-accent-blue)] transition-colors resize-none"
@@ -144,7 +146,7 @@ export const ContactForm = () => {
                     )}
                     {status === "error" && (
                         <p className="text-red-500 text-sm mt-2">
-                            ❌ Errore durante l’invio. Riprova.
+                            ❌ Errore durante l&apos;invio. Riprova.
                         </p>
                     )}
                 </form>
