@@ -6,13 +6,9 @@ export default function Header(): JSX.Element {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     return (
-        <header
-            className={`header ${
-                isOpen ? "bg-(--color-bg-medium)" : ""
-            } transition-all duration-300 ease-in-out`}
-        >
-            <div className="container mx-auto px-4 text-xl md:text-2xl ">
-                <nav className="flex items-center justify-between py-6 w-full z-50">
+        <header>
+            <nav className="fixed top-0 py-4 w-full z-50  bg-(--color-bg-dark)/80 backdrop-blur-md ">
+                <div className="container flex justify-between mx-auto px-4 text-xl md:text-2xl ">
                     {/* Logo a sinistra */}
                     <a href="/" className="font-bold">
                         <span className="logo">&gt;_ntnrss</span>
@@ -43,9 +39,9 @@ export default function Header(): JSX.Element {
                     {/* Menu desktop */}
                     <ul className="hidden md:flex md:gap-6">
                         <li>
-                            <NavLink to="/" className="nav_link">
+                            <a href="#about" className="nav_link">
                                 Home
-                            </NavLink>
+                            </a>
                         </li>
                         <li>
                             <NavLink to="/projects" className="nav_link">
@@ -58,34 +54,28 @@ export default function Header(): JSX.Element {
                             </NavLink>
                         </li>
                     </ul>
-                </nav>
+                </div>
+            </nav>
 
-                {isOpen && (
-                    <ul className="md:hidden flex flex-col gap-4 mt-2 pb-5 transition-all duration-1000 ease-in-out">
-                        <li>
-                            <NavLink to="/" className="nav_link block sm:py-2 md:py-0 border-b">
-                                Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/projects"
-                                className="nav_link block sm:py-2 md:py-0 border-b"
-                            >
-                                Progetti
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/contact"
-                                className="nav_link block sm:py-2 md:py-0 border-b"
-                            >
-                                Contatti
-                            </NavLink>
-                        </li>
-                    </ul>
-                )}
-            </div>
+            {isOpen && (
+                <ul className="md:hidden flex flex-col gap-4 mt-2 pb-5 transition-all duration-1000 ease-in-out">
+                    <li>
+                        <NavLink to="/" className="nav_link block sm:py-2 md:py-0 border-b">
+                            Home
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/projects" className="nav_link block sm:py-2 md:py-0 border-b">
+                            Progetti
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/contact" className="nav_link block sm:py-2 md:py-0 border-b">
+                            Contatti
+                        </NavLink>
+                    </li>
+                </ul>
+            )}
         </header>
     );
 }
