@@ -77,7 +77,7 @@ export const ContactForm = () => {
             <form
                 ref={formRef}
                 onSubmit={sendEmail}
-                className="space-y-6 bg-[var(--color-bg-primary)] p-6 rounded-sm shadow-md border border-[var(--color-text-secondary)]/20"
+                className="space-y-6 bg-[var(--color-bg-primary)] p-6 rounded-sm shadow-md "
             >
                 {/* Name */}
                 <div className="relative">
@@ -128,7 +128,7 @@ export const ContactForm = () => {
                 <button
                     type="submit"
                     disabled={status === "sending"}
-                    className="w-full mt-4 py-2 px-4 rounded-lg bg-[var(--color-accent)] text-white font-medium tracking-wide shadow hover:opacity-90 active:scale-[0.98] transition-transform"
+                    className="w-full mt-4 py-2 px-4 rounded-lg bg-[var(--color-accent-blue)] font-medium tracking-wide shadow hover:opacity-90 active:scale-[0.98] transition-transform"
                 >
                     {status === "sending" ? "Invio..." : "Invia"}
                 </button>

@@ -1,5 +1,6 @@
 import type { JSX } from "react";
 import { ContactForm } from "../Form/ContactForm";
+import { GithubIcon, LinkedinIcon } from "../ui/icons/SocialIcons";
 
 export default function ContactMe(): JSX.Element {
     const contactData = [
@@ -13,11 +14,11 @@ export default function ContactMe(): JSX.Element {
         },
         {
             type: "linkedin",
-            value: "https://www.linkedin.com/in/antonio-russo-361705340/",
+            icon: <LinkedinIcon />,
         },
         {
             type: "github",
-            value: "https://github.com/antoniorusso2",
+            icon: <GithubIcon />,
         },
     ];
     return (
@@ -42,7 +43,9 @@ export default function ContactMe(): JSX.Element {
                                         }`}
                                         className="text-[var(--color-text-primary)] hover:text-[var(--color-accent-blue)] transition-colors duration-300 justify-end"
                                     >
-                                        {contact.value}
+                                        {contact.type === "email" || contact.type === "phone"
+                                            ? contact.value
+                                            : contact.icon}
                                     </a>
                                 </div>
                             </div>
