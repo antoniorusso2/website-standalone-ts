@@ -13,7 +13,7 @@ export default function Header(): JSX.Element {
 
     return (
         <header>
-            <nav className="fixed top-0 py-4 w-full z-50 bg-(--color-bg-dark)/80 backdrop-blur-md ">
+            <nav className="fixed top-0 py-6 w-full z-50 bg-(--color-bg-dark)/80 backdrop-blur-md ">
                 <div className="container flex justify-between mx-auto px-4 text-xl md:text-2xl ">
                     {/* Logo a sinistra */}
                     <a href="/" className="font-bold">

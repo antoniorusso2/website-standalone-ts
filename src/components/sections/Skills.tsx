@@ -12,26 +12,25 @@ export default function Skills(): JSX.Element {
                 <TechCArousel />
             </div>
             {/* list with knowledge for each tech  with levels*/}
-            <div className="container">
-                <div className="knowledge_list mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {technologies.map((skill, index) => (
-                        <div key={index} className="knowledge_item p-4 border rounded-lg">
-                            <h3 className="font-semibold mb-2">{skill.name}</h3>
-                            <div className="skill_level">
-                                {[...Array(maxLevel)].map((_, i) => (
-                                    <span
-                                        key={i}
-                                        className={`inline-block w-8 h-4  ${
-                                            i < skill.level
-                                                ? "bg-[var(--color-accent-blue)]"
-                                                : "bg-gray-300"
-                                        }`}
-                                    ></span>
-                                ))}
-                            </div>
+
+            <div className="knowledge_list mt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {technologies.map((skill, index) => (
+                    <div key={index} className="knowledge_item p-4 border rounded-lg">
+                        <h3 className="font-semibold mb-2">{skill.name}</h3>
+                        <div className="skill_level">
+                            {[...Array(maxLevel)].map((_, i) => (
+                                <span
+                                    key={i}
+                                    className={`inline-block w-8 h-4  ${
+                                        i < skill.level
+                                            ? "bg-[var(--color-accent-blue)]"
+                                            : "bg-gray-300"
+                                    }`}
+                                ></span>
+                            ))}
                         </div>
-                    ))}
-                </div>
+                    </div>
+                ))}
             </div>
         </div>
     );
