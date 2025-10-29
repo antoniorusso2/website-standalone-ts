@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import type { FormData, Status } from "../../types/form";
+import type { FormData, FormError, Status } from "../../types/form";
 import { validateForm } from "../../utils/formValidation";
 import { FormInput } from "./FormInput";
 
@@ -14,13 +14,11 @@ export const ContactForm = () => {
     });
 
     const [status, setStatus] = useState<Status>("idle");
-    const [errors, setErrors] = useState<FormErrors>({
+    const [errors, setErrors] = useState<FormError<FormData>>({
         user_email: "",
         user_name: "",
         message: "",
     });
-
-    const [isFormValid, setIsFormValid] = useState<boolean>(true);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -42,7 +40,6 @@ export const ContactForm = () => {
 
         if (Object.keys(validated).length > 0) {
             setErrors(validated);
-            setIsFormValid(false);
             return;
         }
 
@@ -62,8 +59,6 @@ export const ContactForm = () => {
                 formRef.current,
                 import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY
             );
-
-            console.log("dati validi: ", formData);
 
             setStatus("success");
             setFormData({ user_name: "", user_email: "", message: "" });

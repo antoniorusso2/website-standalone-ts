@@ -1,6 +1,6 @@
 import type { JSX } from "react";
 import InputLabel from "./InputLabel";
-import type { FormData, FormError } from "../../types/form";
+import type { FormError } from "../../types/form";
 
 interface FormInputProps {
     className?: string;
@@ -11,7 +11,7 @@ interface FormInputProps {
     onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     required?: boolean;
     placeholder?: string;
-    error: FormError<string>;
+    error?: FormError<string>;
 }
 
 export function FormInput({

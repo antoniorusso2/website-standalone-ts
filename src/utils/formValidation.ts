@@ -40,9 +40,9 @@ export function validateForm(data: FormData) {
         }
 
         if (rule.min && value.length < rule.min) {
-            errors[key] = `Il campo ${field} deve avere almeno ${rule.min} caratteri`;
+            errors[key] = `Inserisci almeno ${rule.min} caratteri`;
         } else if (rule.max && value.length > rule.max) {
-            errors[key] = `Il campo ${field} deve avere al massimo ${rule.max} caratteri`;
+            errors[key] = `Il campo può contenere al massimo ${rule.max} caratteri`;
         }
 
         if (rule.regex && !rule.regex.test(value)) {
@@ -50,7 +50,7 @@ export function validateForm(data: FormData) {
         }
 
         if (rule.max && value.length > rule.max) {
-            errors[key] = `Il campo ${field} deve avere al massimo ${rule.max} caratteri`;
+            errors[key] = `Inserire al massimo ${rule.max} caratteri`;
         }
 
         if (rule.invalid_chars && invalidCharsRegex.test(value)) {
