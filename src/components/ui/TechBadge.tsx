@@ -4,12 +4,12 @@ import type { TechBadgeProps } from "../../types/technology";
 
 export default function TechBadge({ technology }: TechBadgeProps): JSX.Element {
     const textColor = isColorLight(technology.color)
-        ? "text-(--color-text-dark)"
-        : "text-zinc-200";
+        ? "text-gray-700"
+        : "text-(--color-text-primary)";
 
     return (
         <span
-            className={`badge text-md font-bold py-0.5 px-1 rounded-xs ${textColor}`}
+            className={`badge text-sm  font-bold py-0.5 px-1 rounded-xs ${textColor}`}
             style={{ backgroundColor: technology.color }}
             key={technology.id}
         >

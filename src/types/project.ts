@@ -20,5 +20,5 @@ export interface Project {
         type: string;
     }[];
     technologies: Technology[];
-    external_link: string | null;
+    external_link?: string;
 }
