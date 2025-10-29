@@ -6,14 +6,11 @@ export default function Skills(): JSX.Element {
     const maxLevel = 5;
 
     return (
-        <section className="skill_set">
-            <div className="container">
-                <div className="content_section">
-                    <h2 className="font-bold text-center text-2xl">Tech Stack</h2>
-                    <TechCArousel />
-                </div>
+        <div className="container">
+            <div className="content_section">
+                <h2 className="font-bold text-center text-2xl">Tech Stack</h2>
+                <TechCArousel />
             </div>
-
             {/* list with knowledge for each tech  with levels*/}
             <div className="container">
                 <div className="knowledge_list mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -36,6 +33,6 @@ export default function Skills(): JSX.Element {
                     ))}
                 </div>
             </div>
-        </section>
+        </div>
     );
 }
