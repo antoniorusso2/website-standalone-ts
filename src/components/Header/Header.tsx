@@ -53,17 +53,25 @@ export default function Header(): JSX.Element {
                         ))}
                     </ul>
                 </div>
-                {isOpen && (
-                    <ul className="md:hidden flex flex-col gap-4 mt-2 pb-5 transition-all duration-1000 ease-in-out">
-                        {navItems.map((item, index) => (
-                            <li key={index} className="text-center">
-                                <a href={item.href} className="nav_link">
-                                    {item.name}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                )}
+                {/* mobile menu */}
+
+                <ul
+                    className={`md:hidden ${
+                        isOpen ? "h-screen" : "h-0"
+                    }  overflow-hidden flex flex-col items-center pt-40 text-3xl text-(--color-text-primary) font-semibold space-y-10 gap-4 transition-all duration-500 ease-in-out fixed z-50 w-full bg-(--color-bg-dark)/98 backdrop-blur-2xl px-4`}
+                >
+                    {navItems.map((item, index) => (
+                        <li key={index} className="text-center">
+                            <a
+                                onClick={() => setIsOpen(false)}
+                                href={item.href}
+                                className="nav_link_mobile"
+                            >
+                                {item.name}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
             </nav>
         </header>
     );
