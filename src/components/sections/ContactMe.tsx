@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { ContactForm } from "../components/Form/ContactForm";
+import { ContactForm } from "../Form/ContactForm";
 
 export default function ContactMe(): JSX.Element {
     return (
