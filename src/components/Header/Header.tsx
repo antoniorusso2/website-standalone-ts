@@ -57,8 +57,8 @@ export default function Header(): JSX.Element {
 
                 <ul
                     className={`md:hidden ${
-                        isOpen ? "h-screen" : "h-0"
-                    }  overflow-hidden flex flex-col items-center pt-40 text-3xl text-(--color-text-primary) font-semibold space-y-10 gap-4 transition-all duration-500 ease-in-out fixed z-50 w-full bg-(--color-bg-dark)/98 backdrop-blur-2xl px-4`}
+                        isOpen ? "h-screen pt-40" : "h-0"
+                    }  overflow-hidden flex flex-col items-center  text-3xl text-(--color-text-primary) font-semibold space-y-10 gap-4 transition-all duration-500 ease-in-out fixed z-50 w-full bg-(--color-bg-dark)/98 backdrop-blur-2xl px-4`}
                 >
                     {navItems.map((item, index) => (
                         <li key={index} className="text-center">
