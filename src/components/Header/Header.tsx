@@ -1,13 +1,19 @@
 import { useState, type JSX } from "react";
 import "./header.css";
-import { NavLink } from "react-router";
 
 export default function Header(): JSX.Element {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
+    const navItems = [
+        { name: "Home", href: "#about_me" },
+        { name: "Progetti", href: "#projects" },
+        { name: "Skills", href: "#skills" },
+        { name: "Contatti", href: "#contact_me" },
+    ];
+
     return (
         <header>
-            <nav className="fixed top-0 py-4 w-full z-50  bg-(--color-bg-dark)/80 backdrop-blur-md ">
+            <nav className="fixed top-0 py-6 w-full z-50 bg-(--color-bg-dark)/80 backdrop-blur-md ">
                 <div className="container flex justify-between mx-auto px-4 text-xl md:text-2xl ">
                     {/* Logo a sinistra */}
                     <a href="/" className="font-bold">
@@ -38,44 +44,27 @@ export default function Header(): JSX.Element {
 
                     {/* Menu desktop */}
                     <ul className="hidden md:flex md:gap-6">
-                        <li>
-                            <a href="#about" className="nav_link">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <NavLink to="/projects" className="nav_link">
-                                Progetti
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/contact" className="nav_link">
-                                Contatti
-                            </NavLink>
-                        </li>
+                        {navItems.map((item, index) => (
+                            <li key={index}>
+                                <a href={item.href} className="nav_link ">
+                                    {item.name}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
+                {isOpen && (
+                    <ul className="md:hidden flex flex-col gap-4 mt-2 pb-5 transition-all duration-1000 ease-in-out">
+                        {navItems.map((item, index) => (
+                            <li key={index} className="text-center">
+                                <a href={item.href} className="nav_link">
+                                    {item.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </nav>
-
-            {isOpen && (
-                <ul className="md:hidden flex flex-col gap-4 mt-2 pb-5 transition-all duration-1000 ease-in-out">
-                    <li>
-                        <NavLink to="/" className="nav_link block sm:py-2 md:py-0 border-b">
-                            Home
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/projects" className="nav_link block sm:py-2 md:py-0 border-b">
-                            Progetti
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/contact" className="nav_link block sm:py-2 md:py-0 border-b">
-                            Contatti
-                        </NavLink>
-                    </li>
-                </ul>
-            )}
         </header>
     );
 }

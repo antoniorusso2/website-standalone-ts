@@ -69,84 +69,82 @@ export const ContactForm = () => {
     };
 
     return (
-        <div className="container mx-auto px-4">
-            <div className="content_section max-w-lg mx-auto text-center">
-                <h2 className="text-2xl md:text-4xl font-semibold uppercase tracking-wide drop-shadow-[0_0_4px_var(--color-text-secondary)]/70 mb-5">
-                    Contattami
-                </h2>
+        <div className="text-center bg-(--color-bg-medium)/50 p-6 rounded-lg shadow-md border border-[var(--color-text-secondary)]/20">
+            <h2 className="text-2xl md:text-4xl font-semibold uppercase tracking-wide drop-shadow-[0_0_4px_var(--color-text-secondary)]/70 mb-5">
+                Contattami
+            </h2>
 
-                <form
-                    ref={formRef}
-                    onSubmit={sendEmail}
-                    className="space-y-6 bg-[var(--color-bg-primary)] p-6 rounded-sm shadow-md border border-[var(--color-text-secondary)]/20"
-                >
-                    {/* Name */}
-                    <div className="relative">
-                        <FormInput
-                            type="text"
-                            name="user_name"
-                            value={formData.user_name}
-                            onChange={handleChange}
-                            required={true}
-                            error={errors.user_name}
-                            placeholder="Nome"
-                        />
-                    </div>
+            <form
+                ref={formRef}
+                onSubmit={sendEmail}
+                className="space-y-6 bg-[var(--color-bg-primary)] p-6 rounded-sm shadow-md border border-[var(--color-text-secondary)]/20"
+            >
+                {/* Name */}
+                <div className="relative">
+                    <FormInput
+                        type="text"
+                        name="user_name"
+                        value={formData.user_name}
+                        onChange={handleChange}
+                        required={true}
+                        error={errors.user_name}
+                        placeholder="Nome"
+                    />
+                </div>
 
-                    {/* Email */}
-                    <div className="relative">
-                        <FormInput
-                            type="email"
-                            name="user_email"
-                            value={formData.user_email}
-                            onChange={handleChange}
-                            required={true}
-                            error={errors.user_email}
-                            placeholder="Email"
-                        />
-                    </div>
+                {/* Email */}
+                <div className="relative">
+                    <FormInput
+                        type="email"
+                        name="user_email"
+                        value={formData.user_email}
+                        onChange={handleChange}
+                        required={true}
+                        error={errors.user_email}
+                        placeholder="Email"
+                    />
+                </div>
 
-                    {/* Message */}
-                    <div className="relative">
-                        <textarea
-                            id="message"
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            rows={4}
-                            placeholder="Message"
-                            className="peer w-full border-b-2 border-[var(--color-text-secondary)]/40 bg-transparent py-2 text-[var(--color-text-primary)] placeholder-transparent focus:outline-none focus:border-[var(--color-accent-blue)] transition-colors resize-none"
-                        ></textarea>
-                        <label
-                            htmlFor="message"
-                            className="absolute left-0 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-500 peer-[&:not(:placeholder-shown)]:-top-3 peer-[&:not(:placeholder-shown)]:text-sm peer-[&:not(:placeholder-shown)]:text-blue-500"
-                        >
-                            Messaggio
-                        </label>
-                    </div>
-
-                    {/* Submit Button */}
-                    <button
-                        type="submit"
-                        disabled={status === "sending"}
-                        className="w-full mt-4 py-2 px-4 rounded-lg bg-[var(--color-accent)] text-white font-medium tracking-wide shadow hover:opacity-90 active:scale-[0.98] transition-transform"
+                {/* Message */}
+                <div className="relative">
+                    <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        rows={4}
+                        placeholder="Message"
+                        className="peer w-full border-b-2 border-[var(--color-text-secondary)]/40 bg-transparent py-2 text-[var(--color-text-primary)] placeholder-transparent focus:outline-none focus:border-[var(--color-accent-blue)] transition-colors resize-none"
+                    ></textarea>
+                    <label
+                        htmlFor="message"
+                        className="absolute left-0 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-500 peer-[&:not(:placeholder-shown)]:-top-3 peer-[&:not(:placeholder-shown)]:text-sm peer-[&:not(:placeholder-shown)]:text-blue-500"
                     >
-                        {status === "sending" ? "Invio..." : "Invia"}
-                    </button>
+                        Messaggio
+                    </label>
+                </div>
 
-                    {/* Feedback */}
-                    {status === "success" && (
-                        <p className="text-green-500 text-sm mt-2">
-                            ✅ Messaggio inviato con successo!
-                        </p>
-                    )}
-                    {status === "error" && (
-                        <p className="text-red-500 text-sm mt-2">
-                            ❌ Errore durante l&apos;invio. Riprova.
-                        </p>
-                    )}
-                </form>
-            </div>
+                {/* Submit Button */}
+                <button
+                    type="submit"
+                    disabled={status === "sending"}
+                    className="w-full mt-4 py-2 px-4 rounded-lg bg-[var(--color-accent)] text-white font-medium tracking-wide shadow hover:opacity-90 active:scale-[0.98] transition-transform"
+                >
+                    {status === "sending" ? "Invio..." : "Invia"}
+                </button>
+
+                {/* Feedback */}
+                {status === "success" && (
+                    <p className="text-green-500 text-sm mt-2">
+                        ✅ Messaggio inviato con successo!
+                    </p>
+                )}
+                {status === "error" && (
+                    <p className="text-red-500 text-sm mt-2">
+                        ❌ Errore durante l&apos;invio. Riprova.
+                    </p>
+                )}
+            </form>
         </div>
     );
 };
