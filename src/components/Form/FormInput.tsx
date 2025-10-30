@@ -1,17 +1,17 @@
-import type { JSX } from "react";
-import InputLabel from "./InputLabel";
-import type { FormError } from "../../types/form";
+import type { JSX } from "react"
+import InputLabel from "./InputLabel"
+import type { FormError } from "../../types/form"
 
 interface FormInputProps {
-    className?: string;
-    name: string;
-    type: string;
-    id?: string;
-    value: string;
-    onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
-    required?: boolean;
-    placeholder?: string;
-    error?: FormError<string>;
+    className?: string
+    name: string
+    type: string
+    id?: string
+    value: string
+    onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
+    required?: boolean
+    placeholder?: string
+    error?: FormError<string>
 }
 
 export function FormInput({
@@ -31,7 +31,7 @@ export function FormInput({
                 id={id || name}
                 name={name}
                 type={type}
-                className={`peer w-full border-b-2 border-[var(--color-text-secondary)]/40 bg-transparent py-2 text-[var(--color-text-primary)] placeholder-transparent focus:outline-none focus:border-[var(--color-accent-blue)] transition-colors ${
+                className={`peer w-full border-b-2 border-[var(--color-text-secondary)]/40 bg-transparent py-2 text-[var(--color-text-primary)] placeholder-transparent transition-colors focus:border-[var(--color-accent-blue)] focus:outline-none ${
                     error && "border-red-500"
                 }`}
                 value={value}
@@ -41,7 +41,7 @@ export function FormInput({
             />
 
             <InputLabel htmlFor={id || name}>{placeholder}</InputLabel>
-            {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+            {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
         </div>
-    );
+    )
 }

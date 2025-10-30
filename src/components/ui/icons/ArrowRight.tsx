@@ -1,4 +1,4 @@
-import type { JSX } from "react";
+import type { JSX } from "react"
 
 export default function ArrowRight(): JSX.Element {
     return (
@@ -16,5 +16,5 @@ export default function ArrowRight(): JSX.Element {
                 d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
             />
         </svg>
-    );
+    )
 }

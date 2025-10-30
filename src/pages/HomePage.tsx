@@ -1,9 +1,9 @@
-import type { JSX } from "react";
-import Projects from "../components/sections/Projects";
-import AboutMe from "../components/sections/AboutMe";
-import Skills from "../components/sections/Skills";
-import SectionContainer from "../components/sections/SectionContainer";
-import ContactMe from "../components/sections/ContactMe";
+import type { JSX } from "react"
+import Projects from "../components/sections/Projects"
+import AboutMe from "../components/sections/AboutMe"
+import Skills from "../components/sections/Skills"
+import SectionContainer from "../components/sections/SectionContainer"
+import ContactMe from "../components/sections/ContactMe"
 
 export default function HomePage(): JSX.Element {
     return (
@@ -14,7 +14,7 @@ export default function HomePage(): JSX.Element {
                     {/* call to action button */}
                     <a
                         href="#projects"
-                        className="mt-8 inline-block px-6 py-3 bg-[var(--color-accent-blue)] text-white font-semibold rounded hover:bg-(--color-accent-blue)/70 transition-colors duration-300 ease-in-out"
+                        className="mt-8 inline-block rounded bg-[var(--color-accent-blue)] px-6 py-3 font-semibold transition-colors duration-300 ease-in-out hover:bg-(--color-accent-blue)/70"
                     >
                         Vedi i miei progetti
                     </a>
@@ -22,7 +22,7 @@ export default function HomePage(): JSX.Element {
             </SectionContainer>
 
             <SectionContainer id="projects">
-                <h2 className="text-3xl font-bold mb-8">Progetti</h2>
+                <h2 className="mb-8 text-3xl font-bold">Progetti</h2>
                 <Projects />
             </SectionContainer>
 
@@ -36,5 +36,5 @@ export default function HomePage(): JSX.Element {
 
             {/* tech stack */}
         </div>
-    );
+    )
 }

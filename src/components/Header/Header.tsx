@@ -1,20 +1,20 @@
-import { useState, type JSX } from "react";
-import "./header.css";
+import { useState, type JSX } from "react"
+import "./header.css"
 
 export default function Header(): JSX.Element {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false)
 
     const navItems = [
         { name: "Home", href: "#about_me" },
         { name: "Progetti", href: "#projects" },
         { name: "Skills", href: "#skills" },
         { name: "Contatti", href: "#contact_me" },
-    ];
+    ]
 
     return (
         <header>
-            <nav className="fixed top-0 py-6 w-full z-50 bg-(--color-bg-dark)/80 backdrop-blur-md ">
-                <div className="container flex justify-between mx-auto px-4 text-xl md:text-2xl ">
+            <nav className="fixed top-0 z-50 w-full bg-(--color-bg-dark)/80 py-6 backdrop-blur-md">
+                <div className="container mx-auto flex justify-between px-4 text-xl md:text-2xl">
                     {/* Logo a sinistra */}
                     <a href="/" className="font-bold">
                         <span className="logo">&gt;_ntnrss</span>
@@ -32,7 +32,7 @@ export default function Header(): JSX.Element {
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
                             stroke="currentColor"
-                            className="w-6 h-6"
+                            className="h-6 w-6"
                         >
                             <path
                                 strokeLinecap="round"
@@ -46,7 +46,7 @@ export default function Header(): JSX.Element {
                     <ul className="hidden md:flex md:gap-6">
                         {navItems.map((item, index) => (
                             <li key={index}>
-                                <a href={item.href} className="nav_link ">
+                                <a href={item.href} className="nav_link">
                                     {item.name}
                                 </a>
                             </li>
@@ -58,7 +58,7 @@ export default function Header(): JSX.Element {
                 <ul
                     className={`md:hidden ${
                         isOpen ? "h-screen pt-40" : "h-0"
-                    }  overflow-hidden flex flex-col items-center  text-3xl text-(--color-text-primary) font-semibold space-y-10 gap-4 transition-all duration-500 ease-in-out fixed z-50 w-full bg-(--color-bg-dark)/98 backdrop-blur-2xl px-4`}
+                    } fixed z-50 flex w-full flex-col items-center gap-4 space-y-10 overflow-hidden bg-(--color-bg-dark)/98 px-4 text-3xl font-semibold text-(--color-text-primary) backdrop-blur-2xl transition-all duration-500 ease-in-out`}
                 >
                     {navItems.map((item, index) => (
                         <li key={index} className="text-center">
@@ -74,5 +74,5 @@ export default function Header(): JSX.Element {
                 </ul>
             </nav>
         </header>
-    );
+    )
 }
