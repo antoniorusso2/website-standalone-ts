@@ -3,6 +3,8 @@ import type React from "react"
 import TechBadge from "../ui/TechBadge"
 import type { ProjectCardProps } from "../../types/project"
 
+// Project card temporary component with no image only tech badges, name and description
+
 export default function ProjectCard({
     project,
 }: ProjectCardProps): JSX.Element {

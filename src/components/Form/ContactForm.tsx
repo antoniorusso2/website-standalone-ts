@@ -71,15 +71,11 @@ export const ContactForm = () => {
     }
 
     return (
-        <div className="rounded-lg border border-[var(--color-text-secondary)]/20 bg-(--color-bg-medium)/50 p-6 text-center shadow-md">
-            <h2 className="mb-5 text-2xl font-semibold tracking-wide uppercase drop-shadow-[0_0_4px_var(--color-text-secondary)]/70 md:text-4xl">
-                Contattami
-            </h2>
-
+        <div className="w-full text-center md:p-6">
             <form
                 ref={formRef}
                 onSubmit={sendEmail}
-                className="space-y-6 rounded-sm bg-[var(--color-bg-primary)] p-6 shadow-md"
+                className="space-y-6 rounded-sm bg-[var(--color-bg-primary)] p-6"
             >
                 {/* Name */}
                 <div className="relative">
@@ -116,7 +112,7 @@ export const ContactForm = () => {
                         onChange={handleChange}
                         rows={4}
                         placeholder="Message"
-                        className="peer w-full resize-none border-b-2 border-[var(--color-text-secondary)]/40 bg-transparent py-2 text-[var(--color-text-primary)] placeholder-transparent transition-colors focus:border-[var(--color-accent-blue)] focus:outline-none"
+                        className="peer w-full resize-none border-b-2 border-[var(--color-text-secondary)]/40 py-2 text-[var(--color-text-primary)] placeholder-transparent transition-colors focus:border-[var(--color-accent-blue)] focus:outline-none"
                     ></textarea>
                     <label
                         htmlFor="message"

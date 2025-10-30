@@ -7,9 +7,12 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<DefaultLayout />}>
-                    <Route path="/" element={<HomePage />} />
+                    <Route index path="/" element={<HomePage />} />
 
-                    <Route path="*" element={<div>404</div>} />
+                    <Route
+                        path="*"
+                        element={<div className="mt-42 text-white">404</div>}
+                    />
                 </Route>
             </Routes>
         </BrowserRouter>
