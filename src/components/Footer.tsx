@@ -1,16 +1,16 @@
 export default function Footer() {
     return (
-        <footer className="footer fixed bottom-0 py-4 w-full">
+        <footer className="footer fixed bottom-0 w-full py-4">
             <div className="container">
-                <div className="border-b-2 border-b-cyan-800 py-4 w-full">
+                <div className="w-full border-b-2 border-b-cyan-800 py-4">
                     {/* rights */}
-                    <div className="justify-end flex">
-                        <p className="text-(--color-text-secondary) ms-auto">
+                    <div className="flex justify-end">
+                        <p className="ms-auto text-(--color-text-secondary)">
                             &copy; 2025 AntonioRusso.
                         </p>
                     </div>
                 </div>
             </div>
         </footer>
-    );
+    )
 }

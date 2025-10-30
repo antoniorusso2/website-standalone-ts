@@ -1,30 +1,30 @@
-import type { ImageModalProps } from "../../types/modal";
-import XMark from "./icons/XMark";
+import type { ImageModalProps } from "../../types/modal"
+import XMark from "./icons/XMark"
 
 export default function ImageModal({ src, onClose }: ImageModalProps) {
-    if (!src) return null;
+    if (!src) return null
 
     return (
         <div
-            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
+            className="bg-opacity-80 fixed inset-0 z-50 flex items-center justify-center bg-black p-4"
             onClick={onClose}
         >
             <div
-                className="relative max-w-full max-h-full "
+                className="relative max-h-full max-w-full"
                 onClick={(e) => e.stopPropagation()}
             >
                 <img
                     src={src}
-                    className="max-w-[90vw] max-h-[90vh] object-contain"
+                    className="max-h-[90vh] max-w-[90vw] object-contain"
                     alt="Immagine ingrandita"
                 />
                 <button
-                    className="absolute top-4 right-4 text-white text-3xl p-2 rounded-sm bg-[var(--accent-color)] md:opacity-80 md:hover:opacity-100 transition-opacity cursor-pointer"
+                    className="absolute top-4 right-4 cursor-pointer rounded-sm bg-[var(--accent-color)] p-2 text-3xl text-white transition-opacity md:opacity-80 md:hover:opacity-100"
                     onClick={onClose}
                 >
                     <XMark />
                 </button>
             </div>
         </div>
-    );
+    )
 }

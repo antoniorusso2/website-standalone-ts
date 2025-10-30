@@ -1,6 +1,6 @@
-import { Outlet } from "react-router";
-import Footer from "../components/Footer";
-import Header from "../components/Header/Header.tsx";
+import { Outlet } from "react-router"
+import Footer from "../components/Footer"
+import Header from "../components/Header/Header.tsx"
 
 export default function DefaultLayout() {
     return (
@@ -13,5 +13,5 @@ export default function DefaultLayout() {
 
             <Footer />
         </>
-    );
+    )
 }

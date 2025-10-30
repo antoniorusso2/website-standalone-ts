@@ -27,7 +27,7 @@ html {
 }
 
 .container {
-    @apply mx-auto px-6 min-w-xs;
+    @apply mx-auto min-w-xs px-6;
 }
 
 button {
@@ -46,7 +46,11 @@ main {
 }
 
 header {
-    background-image: linear-gradient(to bottom, var(--color-bg-medium), var(--color-bg-dark) 100%);
+    background-image: linear-gradient(
+        to bottom,
+        var(--color-bg-medium),
+        var(--color-bg-dark) 100%
+    );
 }
 
 body {
@@ -75,7 +79,7 @@ footer {
 }
 
 .content_section {
-    @apply bg-[var(--color-bg-medium)]/80 border border-(--color-bg-medium) rounded-sm shadow-[0_0_30px_var(--color-bg-dark)] backdrop-blur-sm p-6 mb-8;
+    @apply mb-8 rounded-sm border border-(--color-bg-medium) bg-[var(--color-bg-medium)]/80 p-6 shadow-[0_0_30px_var(--color-bg-dark)] backdrop-blur-sm;
 }
 
 .custom_link {

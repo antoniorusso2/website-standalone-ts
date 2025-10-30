@@ -1,25 +1,26 @@
-import { useParams } from "react-router";
-import { projects } from "../data/projects";
-import type { JSX } from "react";
-import { formatDescription } from "../helpers/formatDescription";
-import MediaCarousel from "../components/Carousel/Media/MediaCarousel";
-import TechBadge from "../components/ui/TechBadge";
-import ExternalLink from "../components/ui/icons/ExternalLink";
+import { useParams } from "react-router"
+import { projects } from "../data/projects"
+import type { JSX } from "react"
+import { formatDescription } from "../helpers/formatDescription"
+import MediaCarousel from "../components/Carousel/Media/MediaCarousel"
+import TechBadge from "../components/ui/TechBadge"
+import ExternalLink from "../components/ui/icons/ExternalLink"
 
 export default function ProjectDetail(): JSX.Element {
-    const { slug } = useParams();
+    const { slug } = useParams()
 
-    const project = projects.find((p) => p.slug === slug);
+    const project = projects.find((p) => p.slug === slug)
 
     if (!project) {
         return (
-            <div className="container mx-auto px-4 max-w-4xl py-10 text-center text-red-500">
-                Progetto non trovato o si è verificato un errore nel caricamento.
+            <div className="container mx-auto max-w-4xl px-4 py-10 text-center text-red-500">
+                Progetto non trovato o si è verificato un errore nel
+                caricamento.
             </div>
-        );
+        )
     }
 
-    const formattedDescription = formatDescription(project.description);
+    const formattedDescription = formatDescription(project.description)
 
     return (
         <>
@@ -28,19 +29,21 @@ export default function ProjectDetail(): JSX.Element {
                 {/* Carousel */}
 
                 {/* Titolo e Cliente */}
-                <h1 className=" md:text-2xl font-bold text-[var(--color-text-primary)] capitalize">
+                <h1 className="font-bold text-[var(--color-text-primary)] capitalize md:text-2xl">
                     {project.name}
                 </h1>
                 {project.customer && (
-                    <p className="text-gray-500 mb-3">Cliente: {project.customer}</p>
+                    <p className="mb-3 text-gray-500">
+                        Cliente: {project.customer}
+                    </p>
                 )}
 
                 {/* link */}
                 {project.external_link && (
-                    <div className="text-(--color-accent-blue) flex gap-3 items-center">
+                    <div className="flex items-center gap-3 text-(--color-accent-blue)">
                         <a
                             href={project.external_link}
-                            className="underline "
+                            className="underline"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -53,7 +56,7 @@ export default function ProjectDetail(): JSX.Element {
                 {/* Tipologia */}
                 {project.type && (
                     <div className="my-5">
-                        <span className="inline-block bg-cyan-100 text-cyan-800 text-sm px-3 py-1 rounded-full">
+                        <span className="inline-block rounded-full bg-cyan-100 px-3 py-1 text-sm text-cyan-800">
                             {project.type.name}
                         </span>
                     </div>
@@ -61,7 +64,7 @@ export default function ProjectDetail(): JSX.Element {
 
                 {/* Descrizione */}
                 <div className="mb-6">
-                    <p className="text-gray-200 leading-relaxed">
+                    <p className="leading-relaxed text-gray-200">
                         {formattedDescription.normalLines}
                     </p>
                     {formattedDescription.listItems.length > 0 && (
@@ -85,5 +88,5 @@ export default function ProjectDetail(): JSX.Element {
                 )}
             </div>
         </>
-    );
+    )
 }
