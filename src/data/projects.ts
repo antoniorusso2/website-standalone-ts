@@ -106,7 +106,7 @@ export const projects: Project[] = [
             name: "Web",
         },
         description:
-            "Tool per automazione controllo scadenze e fatturazioni. Python per la creazione di un prototipo 'veloce'. JavaFX per lo sviluppo vero e proprio del progetto. Il progetto consiste in sostanza nel caricamento di una cartella saranno allocati i file da scansionare ed analizzare e dopo aver eseguito l'analisi crea un file di log con tutte le fatturazioni in scadenza o scadute con le relative informazioni. Per il momento essendo in fase di sviluppo il software è capace di scansionare ed estrapolare dati solo da file excel, per quanto riguarda i file PDF è na feature che tra poco sarà completata.",
+            "Tool per automazione controllo scadenza fatture ed eventuale log con i dati dei clienti in ritardo con i pagamenti.\n- Caricamento da file Excel\n- Interfaccia realizzata con JavaFX\n- In Progress: Caricamento file PDF, invio email automatico di sollecito pagamento",
         media: [],
         technologies: [
             {
@@ -126,7 +126,7 @@ export const projects: Project[] = [
                     "https://img.icons8.com/?size=100&id=9nLaR5KFGjN0&format=png&color=000000/possimus-quod-dolores-sed-et-nam-inventore.html",
             },
         ],
-        external_link: "",
+        external_link: "https://github.com/antoniorusso2/invoice-flow",
     },
     {
         id: 1,
@@ -136,22 +136,11 @@ export const projects: Project[] = [
         type: {
             name: "Web",
         },
-        description: "",
+        description:
+            "Backoffice gestione contenuti web per un ipotetico ristorante\n- Realizzato con Laravel e Blade\n- Pannello amministrazione con CRUD per gestione piatti e tipologie\n- Gestione caricamento immagini in local storage ed esposizione API RESTful",
         media: [
             {
                 url: "/projects-images/portfolio-home.png",
-                type: "image",
-            },
-            {
-                url: "/projects-images/portfolio-projects.png",
-                type: "image",
-            },
-            {
-                url: "/projects-images/portfolio-types.png",
-                type: "image",
-            },
-            {
-                url: "/projects-images/portfolio-technologies.png",
                 type: "image",
             },
         ],
@@ -221,6 +210,6 @@ export const projects: Project[] = [
                     "https://img.icons8.com/?size=100&id=4PiNHtUJVbLs&format=png&color=000000",
             },
         ],
-        external_link: "https://github.com/antoniorusso2/laravel-portfolio",
+        external_link: "https://github.com/antoniorusso2/restaurant-backoffice",
     },
 ]
