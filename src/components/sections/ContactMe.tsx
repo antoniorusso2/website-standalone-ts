@@ -15,10 +15,12 @@ export default function ContactMe(): JSX.Element {
         {
             type: "linkedin",
             icon: <LinkedinIcon />,
+            external_url: "https://www.linkedin.com/in/antonio-russo-361705340/",
         },
         {
             type: "github",
             icon: <GithubIcon />,
+            external_url: "https://github.com/antoniorusso2",
         },
     ]
     return (
@@ -36,20 +38,16 @@ export default function ContactMe(): JSX.Element {
                     {contactData.map((contact, index) => (
                         <li key={index} className="mb-4">
                             <div className="card flex flex-wrap items-center justify-between rounded-lg bg-(--color-bg-medium) px-4 py-8 transition-shadow duration-300">
-                                <h3 className="text-lg font-semibold capitalize">
-                                    {contact.type}
-                                </h3>
+                                <h3 className="text-lg font-semibold capitalize">{contact.type}</h3>
                                 <div className="ml-auto">
                                     <a
                                         href={`${
-                                            contact.type === "email"
-                                                ? `mailto:${contact.value}`
-                                                : contact.value
+                                            contact.type === "email" ? `mailto:${contact.value}` : contact.external_url
                                         }`}
+                                        target="_blank"
                                         className="block justify-end text-(--color-text-primary) transition-all duration-300 hover:scale-110 hover:text-(--color-accent-blue) hover:underline"
                                     >
-                                        {contact.type === "email" ||
-                                        contact.type === "phone"
+                                        {contact.type === "email" || contact.type === "phone"
                                             ? contact.value
                                             : contact.icon}
                                     </a>

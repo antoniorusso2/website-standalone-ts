@@ -6,10 +6,10 @@ import SectionContainer from "../components/sections/SectionContainer"
 import ContactMe from "../components/sections/ContactMe"
 import ChevronDown from "../components/ui/icons/ChevronDown"
 import Download from "../components/ui/icons/Download"
-import useScroll from "../hooks/useSectionContext"
+import useSectionContext from "../hooks/useSectionContext"
 
 export default function HomePage(): JSX.Element {
-    const { handleScrollToSection } = useScroll()
+    const { handleScrollToSection } = useSectionContext()
 
     return (
         <div className="flex-col">
@@ -18,41 +18,34 @@ export default function HomePage(): JSX.Element {
 
                 {/* call to action buttons */}
                 <div className="cta flex flex-col items-center justify-center gap-6 md:mt-auto md:flex-row">
-                    <button className="rounded bg-[var(--color-accent-blue)] px-4 py-3 font-semibold transition-colors duration-300 ease-in-out hover:bg-(--color-accent-blue)/70 active:scale-95">
-                        <a
-                            onClick={() => {
-                                handleScrollToSection("#projects")
-                            }}
-                            href="#projects"
-                            className="inline-block"
-                        >
-                            Progetti
-                            <span className="ml-4 inline-block animate-bounce align-middle">
-                                <ChevronDown />
-                            </span>
-                        </a>
-                    </button>
+                    <a
+                        href="#projects"
+                        onClick={() => handleScrollToSection("#projects")}
+                        className="inline-block rounded bg-[var(--color-accent-blue)] px-4 py-3 font-semibold transition-colors duration-300 ease-in-out hover:bg-(--color-accent-blue)/70 active:scale-95"
+                    >
+                        Progetti
+                        <span className="ml-4 inline-block animate-bounce align-middle">
+                            <ChevronDown />
+                        </span>
+                    </a>
 
                     {/* download cv */}
-                    <button className="rounded bg-[var(--color-accent-violet)] px-4 py-3 font-semibold transition-colors duration-300 ease-in-out hover:bg-(--color-accent-violet)/70 active:scale-95">
-                        <a
-                            href="/CV-Antonio-Russo.pdf"
-                            download
-                            className="inline-block"
-                        >
-                            Scarica CV
-                            <span className="ml-4 inline-block align-middle">
-                                <Download />
-                            </span>
-                        </a>
-                    </button>
+
+                    <a
+                        href="/CV-Antonio-Russo.pdf"
+                        download
+                        className="inline-block rounded bg-[var(--color-accent-violet)] px-4 py-3 font-semibold transition-colors duration-300 ease-in-out hover:bg-(--color-accent-violet)/70 active:scale-95"
+                    >
+                        Scarica CV
+                        <span className="ml-4 inline-block align-middle">
+                            <Download />
+                        </span>
+                    </a>
                 </div>
             </SectionContainer>
 
             <SectionContainer id="projects">
-                <h2 className="my-12 text-center text-3xl font-bold">
-                    Progetti
-                </h2>
+                <h2 className="my-12 text-center text-3xl font-bold">Progetti</h2>
                 <Projects />
             </SectionContainer>
 

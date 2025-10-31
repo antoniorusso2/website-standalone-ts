@@ -42,8 +42,7 @@ export function validateForm(data: FormData) {
         if (rule.min && value.length < rule.min) {
             errors[key] = `Inserisci almeno ${rule.min} caratteri`
         } else if (rule.max && value.length > rule.max) {
-            errors[key] =
-                `Il campo può contenere al massimo ${rule.max} caratteri`
+            errors[key] = `Il campo può contenere al massimo ${rule.max} caratteri`
         }
 
         if (rule.regex && !rule.regex.test(value)) {

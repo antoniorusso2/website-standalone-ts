@@ -31,11 +31,7 @@ export default function Header(): JSX.Element {
                     </a>
 
                     {/* mobile hamburger menu*/}
-                    <button
-                        className="md:hidden"
-                        onClick={() => setIsOpen(!isOpen)}
-                        aria-label="Toggle menu"
-                    >
+                    <button className="md:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
