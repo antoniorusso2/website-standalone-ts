@@ -4,25 +4,48 @@ import AboutMe from "../components/sections/AboutMe"
 import Skills from "../components/sections/Skills"
 import SectionContainer from "../components/sections/SectionContainer"
 import ContactMe from "../components/sections/ContactMe"
+import ChevronDown from "../components/ui/icons/ChevronDown"
+import Download from "../components/ui/icons/Download"
+import useSectionContext from "../hooks/useSectionContext"
 
 export default function HomePage(): JSX.Element {
+    const { handleScrollToSection } = useSectionContext()
+
     return (
         <div className="flex-col">
             <SectionContainer id="about_me">
                 <AboutMe />
-                <div className="cta">
-                    {/* call to action button */}
+
+                {/* call to action buttons */}
+                <div className="cta flex flex-col items-center justify-center gap-6 md:mt-auto md:flex-row">
                     <a
                         href="#projects"
-                        className="mt-8 inline-block rounded bg-[var(--color-accent-blue)] px-6 py-3 font-semibold transition-colors duration-300 ease-in-out hover:bg-(--color-accent-blue)/70"
+                        onClick={() => handleScrollToSection("#projects")}
+                        className="inline-block rounded bg-[var(--color-accent-blue)] px-4 py-3 font-semibold transition-colors duration-300 ease-in-out hover:bg-(--color-accent-blue)/70 active:scale-95"
                     >
-                        Vedi i miei progetti
+                        Progetti
+                        <span className="ml-4 inline-block animate-bounce align-middle">
+                            <ChevronDown />
+                        </span>
+                    </a>
+
+                    {/* download cv */}
+
+                    <a
+                        href="/CV-Antonio-Russo.pdf"
+                        download
+                        className="inline-block rounded bg-[var(--color-accent-violet)] px-4 py-3 font-semibold transition-colors duration-300 ease-in-out hover:bg-(--color-accent-violet)/70 active:scale-95"
+                    >
+                        Scarica CV
+                        <span className="ml-4 inline-block align-middle">
+                            <Download />
+                        </span>
                     </a>
                 </div>
             </SectionContainer>
 
             <SectionContainer id="projects">
-                <h2 className="mb-8 text-3xl font-bold">Progetti</h2>
+                <h2 className="my-12 text-center text-3xl font-bold">Progetti</h2>
                 <Projects />
             </SectionContainer>
 
