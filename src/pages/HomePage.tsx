@@ -6,17 +6,26 @@ import SectionContainer from "../components/sections/SectionContainer"
 import ContactMe from "../components/sections/ContactMe"
 import ChevronDown from "../components/ui/icons/ChevronDown"
 import Download from "../components/ui/icons/Download"
+import useScroll from "../hooks/useSectionContext"
 
 export default function HomePage(): JSX.Element {
+    const { handleScrollToSection } = useScroll()
+
     return (
         <div className="flex-col">
             <SectionContainer id="about_me">
                 <AboutMe />
 
                 {/* call to action buttons */}
-                <div className="cta flex flex-col items-center justify-center gap-6 md:mt-auto">
+                <div className="cta flex flex-col items-center justify-center gap-6 md:mt-auto md:flex-row">
                     <button className="rounded bg-[var(--color-accent-blue)] px-4 py-3 font-semibold transition-colors duration-300 ease-in-out hover:bg-(--color-accent-blue)/70 active:scale-95">
-                        <a href="#projects" className="inline-block">
+                        <a
+                            onClick={() => {
+                                handleScrollToSection("#projects")
+                            }}
+                            href="#projects"
+                            className="inline-block"
+                        >
                             Progetti
                             <span className="ml-4 inline-block animate-bounce align-middle">
                                 <ChevronDown />

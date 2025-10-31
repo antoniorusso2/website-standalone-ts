@@ -1,8 +1,10 @@
-import { useState, type JSX } from "react"
+import { useEffect, useState, type JSX } from "react"
 import "./header.css"
+import useScroll from "../../hooks/useSectionContext"
 
 export default function Header(): JSX.Element {
     const [isOpen, setIsOpen] = useState<boolean>(false)
+    const { currentSection, handleScrollToSection } = useScroll()
 
     const navItems = [
         { name: "Home", href: "#about_me" },
@@ -10,6 +12,14 @@ export default function Header(): JSX.Element {
         { name: "Skills", href: "#skills" },
         { name: "Contatti", href: "#contact_me" },
     ]
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden"
+        } else {
+            document.body.style.overflow = "auto"
+        }
+    }, [isOpen])
 
     return (
         <header>
@@ -46,7 +56,14 @@ export default function Header(): JSX.Element {
                     <ul className="hidden md:flex md:gap-6">
                         {navItems.map((item, index) => (
                             <li key={index}>
-                                <a href={item.href} className="nav_link">
+                                <a
+                                    onClick={() => {
+                                        handleScrollToSection(item.href)
+                                        console.log(currentSection)
+                                    }}
+                                    href={item.href}
+                                    className={`nav_link ${currentSection === item.href ? "active" : ""}`}
+                                >
                                     {item.name}
                                 </a>
                             </li>
@@ -63,9 +80,9 @@ export default function Header(): JSX.Element {
                     {navItems.map((item, index) => (
                         <li key={index} className="text-center">
                             <a
-                                onClick={() => setIsOpen(false)}
+                                onClick={() => handleScrollToSection(item.href)}
                                 href={item.href}
-                                className="nav_link_mobile"
+                                className={`nav_link ${currentSection === item.href ? "active" : ""}`}
                             >
                                 {item.name}
                             </a>
