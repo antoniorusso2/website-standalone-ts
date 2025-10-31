@@ -1,5 +1,4 @@
 import { useEffect, useState, type JSX } from "react"
-import "./header.css"
 import useScroll from "../../hooks/useSectionContext"
 
 export default function Header(): JSX.Element {
@@ -26,8 +25,8 @@ export default function Header(): JSX.Element {
             <nav className="fixed top-0 z-50 w-full bg-(--color-bg-dark)/80 py-6 backdrop-blur-md">
                 <div className="container mx-auto flex justify-between px-4 text-xl md:text-2xl">
                     {/* Logo a sinistra */}
-                    <a href="/" className="font-bold">
-                        <span className="logo">&gt;_ntnrss</span>
+                    <a href="/" className="text-(--color-text-primary)">
+                        &gt;_ntnrss
                     </a>
 
                     {/* mobile hamburger menu*/}
@@ -55,7 +54,7 @@ export default function Header(): JSX.Element {
                     </button>
 
                     {/* Menu desktop */}
-                    <ul className="hidden md:flex md:gap-6">
+                    <ul className="hidden md:flex md:gap-8 lg:gap-12">
                         {navItems.map((item, index) => (
                             <li key={index}>
                                 <a
@@ -63,7 +62,7 @@ export default function Header(): JSX.Element {
                                         handleScrollToSection(item.href)
                                     }}
                                     href={item.href}
-                                    className={`nav_link ${currentSection === item.href ? "active" : ""}`}
+                                    className={`nav_link ${currentSection === item.href ? "active text-(--color-accent-blue)" : "text-(--color-text-secondary)"} hover:text-(--color-accent-blue)`}
                                 >
                                     {item.name}
                                 </a>

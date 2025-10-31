@@ -13,10 +13,7 @@ export default function TechCArousel(): JSX.Element | null {
                         key={idx}
                         className="carousel-item transition-shadow duration-300 hover:drop-shadow-[0_0_8px_var(--color-glow)]"
                     >
-                        <img
-                            src={technology.icon_external_url}
-                            alt="tech-icon"
-                        />
+                        <img src={technology.icon_url} alt="tech-icon" />
                     </div>
                 ))}
                 {[...technologies, ...technologies].map((technology, idx) => (
@@ -24,10 +21,7 @@ export default function TechCArousel(): JSX.Element | null {
                         key={idx}
                         className="carousel-item transition-shadow duration-300 hover:drop-shadow-[0_0_8px_var(--color-glow)]"
                     >
-                        <img
-                            src={technology.icon_external_url}
-                            alt="tech-icon"
-                        />
+                        <img src={technology.icon_url} alt="tech-icon" />
                     </div>
                 ))}
             </div>

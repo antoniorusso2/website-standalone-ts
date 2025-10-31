@@ -35,64 +35,56 @@ export const projects: Project[] = [
                 name: "PHP",
                 level: 1,
                 color: "#878eb7",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=f0R4xVI4Sc8O&format=png&color=000000",
+                icon_url: "/tech-icons/php.png",
             },
             {
                 id: 5,
                 name: "Laravel",
                 level: 1,
                 color: "#f34e34",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=qfQaIYKX23qY&format=png&color=000000",
+                icon_url: "/tech-icons/laravel.png",
             },
             {
                 id: 6,
                 name: "React",
-                level: 1,
+                level: 4,
                 color: "#00acc1",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=asWSSTBrDlTW&format=png&color=000000",
+                icon_url: "/tech-icons/react.png",
             },
             {
                 id: 1,
                 name: "HTML",
                 level: 4,
                 color: "#ff6d01",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=20909&format=png&color=000000",
+                icon_url: "/tech-icons/html.png",
             },
             {
                 id: 2,
                 name: "CSS",
                 level: 1,
                 color: "#1377bd",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=21278&format=png&color=000000",
+                icon_url: "/tech-icons/css.png",
             },
             {
                 id: 3,
                 name: "JavaScript",
                 level: 1,
                 color: "#fdd600",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=108784&format=png&color=000000",
+                icon_url: "/tech-icons/javascript.png",
             },
             {
                 id: 11,
                 name: "MySQL",
                 level: 1,
                 color: "#4caf50",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=9nLaR5KFGjN0&format=png&color=000000/possimus-quod-dolores-sed-et-nam-inventore.html",
+                icon_url: "/tech-icons/mysql.png",
             },
             {
                 id: 9,
                 name: "Tailwind",
                 level: 4,
                 color: "#00acc1",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=4PiNHtUJVbLs&format=png&color=000000",
+                icon_url: "/tech-icons/tailwind.png",
             },
         ],
         external_link: "https://github.com/antoniorusso2/laravel-portfolio",
@@ -110,20 +102,18 @@ export const projects: Project[] = [
         media: [],
         technologies: [
             {
-                id: 12,
+                id: 13,
                 name: "Python",
                 level: 1,
                 color: "#4caf50",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=9nLaR5KFGjN0&format=png&color=000000/possimus-quod-dolores-sed-et-nam-inventore.html",
+                icon_url: "/tech-icons/python.png",
             },
             {
-                id: 13,
+                id: 12,
                 name: "Java",
                 level: 1,
                 color: "#4caf50",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=9nLaR5KFGjN0&format=png&color=000000/possimus-quod-dolores-sed-et-nam-inventore.html",
+                icon_url: "/tech-icons/java.png",
             },
         ],
         external_link: "https://github.com/antoniorusso2/invoice-flow",
@@ -150,64 +140,56 @@ export const projects: Project[] = [
                 name: "PHP",
                 level: 1,
                 color: "#878eb7",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=f0R4xVI4Sc8O&format=png&color=000000",
+                icon_url: "/tech-icons/php.png",
             },
             {
                 id: 5,
                 name: "Laravel",
                 level: 1,
                 color: "#f34e34",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=qfQaIYKX23qY&format=png&color=000000",
+                icon_url: "/ tech-icons/laravel.png",
             },
             {
                 id: 6,
                 name: "React",
                 level: 1,
                 color: "#00acc1",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=asWSSTBrDlTW&format=png&color=000000",
+                icon_url: "/tech-icons/react.png",
             },
             {
                 id: 1,
                 name: "HTML",
                 level: 4,
                 color: "#ff6d01",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=20909&format=png&color=000000",
+                icon_url: "/tech-icons/html.png",
             },
             {
                 id: 2,
                 name: "CSS",
                 level: 1,
                 color: "#1377bd",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=21278&format=png&color=000000",
+                icon_url: "/tech-icons/css.png",
             },
             {
                 id: 3,
                 name: "JavaScript",
                 level: 1,
                 color: "#fdd600",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=108784&format=png&color=000000",
+                icon_url: "/tech-icons/javascript.png",
             },
             {
                 id: 11,
                 name: "MySQL",
                 level: 1,
                 color: "#4caf50",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=9nLaR5KFGjN0&format=png&color=000000/possimus-quod-dolores-sed-et-nam-inventore.html",
+                icon_url: "/tech-icons/mysql.png",
             },
             {
                 id: 9,
                 name: "Tailwind",
                 level: 4,
                 color: "#00acc1",
-                icon_external_url:
-                    "https://img.icons8.com/?size=100&id=4PiNHtUJVbLs&format=png&color=000000",
+                icon_url: "/tech-icons/tailwind.png",
             },
         ],
         external_link: "https://github.com/antoniorusso2/restaurant-backoffice",
