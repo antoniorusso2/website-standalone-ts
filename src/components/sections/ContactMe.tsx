@@ -15,12 +15,12 @@ export default function ContactMe(): JSX.Element {
         {
             type: "linkedin",
             icon: <LinkedinIcon />,
-            external_url: "https://www.linkedin.com/in/antonio-russo-361705340/",
+            external_url: import.meta.env.VITE_LINKEDIN_LINK || "",
         },
         {
             type: "github",
             icon: <GithubIcon />,
-            external_url: "https://github.com/antoniorusso2",
+            external_url: import.meta.env.VITE_GITHUB_LINK || "",
         },
     ]
     return (
