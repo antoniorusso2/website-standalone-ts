@@ -59,7 +59,6 @@ export default function Header(): JSX.Element {
                                 <a
                                     onClick={() => {
                                         handleScrollToSection(item.href)
-                                        console.log(currentSection)
                                     }}
                                     href={item.href}
                                     className={`nav_link ${currentSection === item.href ? "active" : ""}`}

@@ -1,4 +1,4 @@
-import type { FormData, FormError, FormValidationRule } from "../types/form";
+import type { FormData, FormError, FormValidationRule } from "../types/form"
 
 /**
  * Function to validate form data iterating through each rules and applying them to the data fields.
@@ -6,8 +6,8 @@ import type { FormData, FormError, FormValidationRule } from "../types/form";
  * @returns object with errors if any
  */
 export function validateForm(data: FormData) {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const invalidCharsRegex = /[^\p{L}\s-]/u;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    const invalidCharsRegex = /[^\p{L}\s-]/u
 
     const rules: FormValidationRule<FormData> = {
         user_name: {
@@ -24,41 +24,40 @@ export function validateForm(data: FormData) {
             min: 3,
             max: 500,
         },
-    };
+    }
 
-    const errors: FormError<FormData> = {};
+    const errors: FormError<FormData> = {}
 
     for (const field in rules) {
-        const key = field as keyof FormData;
-        const value = data[key];
-        const rule = rules[key];
+        const key = field as keyof FormData
+        const value = data[key]
+        const rule = rules[key]
 
-        if (!rule) continue;
+        if (!rule) continue
 
         if (rule.required && !value.trim()) {
-            errors[key] = "Campo obbligatorio";
+            errors[key] = "Campo obbligatorio"
         }
 
         if (rule.min && value.length < rule.min) {
-            errors[key] = `Inserisci almeno ${rule.min} caratteri`;
+            errors[key] = `Inserisci almeno ${rule.min} caratteri`
         } else if (rule.max && value.length > rule.max) {
-            errors[key] = `Il campo può contenere al massimo ${rule.max} caratteri`;
+            errors[key] =
+                `Il campo può contenere al massimo ${rule.max} caratteri`
         }
 
         if (rule.regex && !rule.regex.test(value)) {
-            errors[key] = "Formato email non valido";
+            errors[key] = "Formato email non valido"
         }
 
         if (rule.max && value.length > rule.max) {
-            errors[key] = `Inserire al massimo ${rule.max} caratteri`;
+            errors[key] = `Inserire al massimo ${rule.max} caratteri`
         }
 
         if (rule.invalid_chars && invalidCharsRegex.test(value)) {
-            errors[key] = "Caratteri non validi";
+            errors[key] = "Caratteri non validi"
         }
     }
 
-    console.log(errors);
-
-    return errors;
+    return errors
 }
