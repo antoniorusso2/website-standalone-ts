@@ -7,6 +7,7 @@ import ContactMe from "../components/sections/ContactMe"
 import ChevronDown from "../components/ui/icons/ChevronDown"
 import Download from "../components/ui/icons/Download"
 import useSectionContext from "../hooks/useSectionContext"
+import cvPDF from "../assets/CV-AntonioRusso.pdf"
 
 export default function HomePage(): JSX.Element {
     const { handleScrollToSection } = useSectionContext()
@@ -32,7 +33,7 @@ export default function HomePage(): JSX.Element {
                     {/* download cv */}
 
                     <a
-                        href="/CV-Antonio-Russo.pdf"
+                        href={cvPDF}
                         download
                         className="inline-block rounded bg-[var(--color-accent-violet)] px-4 py-3 font-semibold transition-colors duration-300 ease-in-out hover:bg-(--color-accent-violet)/70 active:scale-95"
                     >
