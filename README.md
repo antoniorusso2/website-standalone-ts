@@ -2,6 +2,8 @@
 
   **Questa è una versione con dati statici senza backend**
 
+link ->  https://ntn-rss-portfolio.vercel.app/
+
 Sviluppata a puro scopo dimostrativo.
 
 ---
