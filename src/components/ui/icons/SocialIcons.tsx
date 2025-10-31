@@ -16,5 +16,5 @@ export function LinkedinIcon(): JSX.Element {
 }
 
 export function GithubIcon(): JSX.Element {
-    return <img src="https://img.icons8.com/ios-glyphs/40/ffffff/github.png" alt="github" />
+    return <img className="h-12 w-12" src="/social-icons/github.png" alt="github" />
 }
