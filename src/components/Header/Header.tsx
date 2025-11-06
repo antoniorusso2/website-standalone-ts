@@ -85,7 +85,7 @@ export default function Header(): JSX.Element {
                                     handleScrollToSection(item.href)
                                 }}
                                 href={item.href}
-                                className={`nav_link ${currentSection === item.href ? "active" : ""}`}
+                                className={`nav_link ${currentSection === item.href ? "active text-(--color-accent-blue)" : ""}`}
                             >
                                 {item.name}
                             </a>

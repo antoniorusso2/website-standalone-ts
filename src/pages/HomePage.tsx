@@ -46,7 +46,7 @@ export default function HomePage(): JSX.Element {
             </SectionContainer>
 
             <SectionContainer id="projects">
-                <h2 className="my-12 text-center text-3xl font-bold">Progetti</h2>
+                <h2 className="my-6 md:mb-6 text-center text-3xl font-bold">Progetti</h2>
                 <Projects />
             </SectionContainer>
 
